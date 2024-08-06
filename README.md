@@ -13,12 +13,16 @@ Este documento descreve a arquitetura e o fluxo do padrão SAGA aplicado ao sist
    - Representa o serviço de interface móvel usado pelo usuário para interagir com o sistema.
 3. **Consulta Catálogo**
    - Indica a ação de consultar o catálogo de produtos.
+   - Repositório do [Produto-Service](https://github.com/ChristianS0ares/nuget-fiap-app-produto).
 4. **Pedido-Service**
    - Serviço responsável por criar e gerenciar pedidos.
+   - Repositório do [Pedido-Service](https://github.com/ChristianS0ares/nuget-fiap-app-pedido).
 5. **Pagamento-Service**
    - Serviço responsável pelo processamento dos pagamentos.
+   - Repositório do [Pagamento-Service](https://github.com/ChristianS0ares/nuget-fiap-app-pagamento).
 6. **Cozinha-Service**
    - Serviço responsável pela preparação dos pedidos na cozinha.
+   - Repositório do [Acompanhamento-Service](https://github.com/ChristianS0ares/nuget-fiap-app-producao).
 
 ## Fluxo Detalhado do Processo
 
