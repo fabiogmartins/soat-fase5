@@ -20,9 +20,9 @@ Este documento descreve a arquitetura e o fluxo do padrão SAGA aplicado ao sist
 5. **Pagamento-Service**
    - Serviço responsável pelo processamento dos pagamentos.
    - Repositório do [Pagamento-Service](https://github.com/ChristianS0ares/nuget-fiap-app-pagamento).
-6. **Cozinha-Service**
+6. **Produção-Service**
    - Serviço responsável pela preparação dos pedidos na cozinha.
-   - Repositório do [Acompanhamento-Service](https://github.com/ChristianS0ares/nuget-fiap-app-producao).
+   - Repositório do [Produção-Service](https://github.com/ChristianS0ares/nuget-fiap-app-producao).
 
 ## Fluxo Detalhado do Processo
 
@@ -45,13 +45,13 @@ Este documento descreve a arquitetura e o fluxo do padrão SAGA aplicado ao sist
   - O `Pedido-Service` atualiza o estado do pedido para `Pagamento Falhou` e notifica o cliente.
 
 ### Envio para Cozinha
-- O `Cozinha-Service` escuta o evento `PagamentoAprovado`.
-- O `Cozinha-Service` recebe os detalhes do pedido e inicia a preparação.
-- O `Cozinha-Service` publica um evento `PedidoEmPreparacao`.
+- O `Produção-Service` escuta o evento `PagamentoAprovado`.
+- O `Produção-Service` recebe os detalhes do pedido e inicia a preparação.
+- O `Produção-Service` publica um evento `PedidoEmPreparacao`.
 
 ### Acompanhamento e Finalização do Pedido
 - O cliente pode acompanhar o status do pedido através de um monitor que exibe os seguintes estados: `Recebido`, `Em Preparação`, `Pronto` e `Finalizado`.
-- Quando o pedido é preparado, o `Cozinha-Service` publica um evento `PedidoPronto`.
+- Quando o pedido é preparado, o `Produção-Service` publica um evento `PedidoPronto`.
 - O cliente é notificado que o pedido está pronto para retirada.
 - Após a retirada, o `Pedido-Service` atualiza o estado do pedido para `Finalizado`.
 
